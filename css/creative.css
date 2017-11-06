@@ -6,6 +6,11 @@
 
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Lato:400,300");
 
+@media (max-width: 475px) {
+  .hide-mobile {
+    display: none;
+  }
+}
 #back-to-top {
   z-index: 1;
   height: 40px;
