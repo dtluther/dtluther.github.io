@@ -51,10 +51,42 @@
     delay: 200
   });
   sr.reveal('.sr-contact', {
-    duration: 600,
+    duration: 500,
     scale: 0.3,
     distance: '0px'
   }, 300);
+  sr.reveal('.social-icons', {
+    duration: 1000,
+    scale: 0.3,
+    delay: 200,
+    origin: 'top',
+    distance: '75px'
+  }, 300);
+  sr.reveal('#copyright', {
+    duration: 1000,
+    scale: 0.3,
+    delay: 400,
+    distance: '0px'
+  }, 300);
+
+  $("#back-to-top").hide();
+  var $window = $(window);
+  $window.on("scroll", function () {
+    if ($window.scrollTop() > 300) {
+      $("#back-to-top").fadeIn();
+    } else {
+      $("#back-to-top").fadeOut();
+    }
+  });
+  $("#back-to-top").on("click", function () {
+    $("html, body").animate(
+      {
+        scrollTop: 0
+      },
+      1000
+    );
+    return false;
+  });
 
   // Magnific popup calls
   // $('.popup-gallery').magnificPopup({
