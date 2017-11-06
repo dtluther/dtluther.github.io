@@ -44,28 +44,30 @@
   sr.reveal('.sr-icons', {
     duration: 1000,
     scale: 0.3,
+    delay: 200,
     distance: '0px'
   }, 200);
   sr.reveal('.sr-button', {
     duration: 1000,
-    delay: 200
+    delay: 300
   });
   sr.reveal('.sr-contact', {
     duration: 500,
     scale: 0.3,
+    delay: 300,
     distance: '0px'
   }, 300);
   sr.reveal('.social-icons', {
     duration: 1000,
     scale: 0.3,
-    delay: 200,
+    delay: 300,
     origin: 'top',
     distance: '75px'
   }, 300);
   sr.reveal('#copyright', {
     duration: 1000,
     scale: 0.3,
-    delay: 400,
+    delay: 300,
     distance: '0px'
   }, 300);
 
