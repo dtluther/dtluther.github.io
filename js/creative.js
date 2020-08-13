@@ -58,7 +58,7 @@
     distance: '0px'
   }, 300);
   sr.reveal('.social-icons', {
-    duration: 1000,
+    duration: 1500,
     scale: 0.3,
     delay: 300,
     origin: 'top',
@@ -67,7 +67,7 @@
   sr.reveal('#copyright', {
     duration: 1000,
     scale: 0.3,
-    delay: 300,
+    delay: 1000,
     distance: '0px'
   }, 300);
 

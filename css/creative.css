@@ -40,7 +40,7 @@
   animation-delay: 0.2s;
   animation-name: fadeIn;
 }
-#redux-title, #xd-title{
+#redux-title {
   margin-top: 3px;
 }
 
