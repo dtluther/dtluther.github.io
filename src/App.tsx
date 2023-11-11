@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
-import TimelinePage from "./pages/timeline";
+import TimelinePage from "./pages/Timeline";
 
 function App() {
   return (
