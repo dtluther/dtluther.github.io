@@ -54,8 +54,8 @@ const TimelinePage: React.FC = () => {
   return (
     <main className="min-h-screen bg-black py-16 pl-16 pr-52 font-sans text-white">
       <section className="mb-16 text-5xl leading-normal tracking-wide">
-        <p>
-          Dillon Luther is a mechanical engineer turned software engineer who
+        <p className="leading-normal">
+          Dillon Luther is a software engineer who
           specializes in building web applications. Away from the keyboard, you
           can find him dancing and engaging in various athletic endeavors around
           the world.
