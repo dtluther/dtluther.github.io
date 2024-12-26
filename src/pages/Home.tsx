@@ -147,8 +147,8 @@ const Header: FC = () => (
 const Introduction: FC = () => (
   <div className="mb-16">
     <p className="text-3xl text-gray-300 leading-relaxed">
-      <span className="text-white">Dillon Luther</span> is a mechanical engineer turned software engineer, based in New York City. 
-      He builds web applications and dances West Coast Swing.
+      <span className="text-white">Dillon Luther</span> is a mechanical engineer turned software engineer based in New York. 
+      Outside of tech, he dances West Coast Swing, plays all sorts of sports, and pursues different challenges to make the most of his human experience.
     </p>
   </div>
 );
