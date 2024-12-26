@@ -1,4 +1,98 @@
+/* Import Inter font for modern typography and JetBrains Mono for monospace text
+ * Inter: Clean, modern sans-serif font for general text
+ * JetBrains Mono: Developer-focused monospace font for code/technical content
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Tailwind's layer directives for proper cascade order */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer: Fundamental styles that apply to raw HTML elements */
+@layer base {
+  html { 
+    /* Enable OpenType features for better typography:
+     * cv02: Alternate 'a' glyph
+     * cv03: Alternate 'g' glyph
+     * cv04: Alternate 'w' glyph
+     * cv11: Alternate '1' glyph
+     */
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+    
+    /* Improve text rendering on modern browsers */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Enable smooth scrolling for better UX */
+    @apply scroll-smooth;
+  }
+
+  /* Set dark theme and base typography */
+  body {
+    /* Rich dark background with slight warmth */
+    @apply bg-[#1a1a1a] text-gray-100;
+    /* Use Inter as primary font with system fonts as fallback */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Smooth transitions for all links */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Consistent heading styles across the site */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight text-white;
+  }
+}
+
+/* Component layer: Reusable styles for common patterns */
+@layer components {
+  /* Rich text content styling */
+  .prose {
+    /* Remove max-width constraint */
+    @apply max-w-none;
+    /* Light gray text for better readability in dark mode */
+    @apply text-gray-300;
+  }
+
+  /* Link styling within rich text */
+  .prose a {
+    /* Blue links with hover state */
+    @apply text-blue-400 hover:text-blue-300;
+    /* Remove default underline for cleaner look */
+    @apply no-underline;
+  }
+
+  /* Bold text within rich text */
+  .prose strong {
+    /* Pure white for emphasis */
+    @apply text-white;
+  }
+}
+
+/* Custom Scrollbar Styling */
+/* Note: These styles only work in WebKit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  /* Thin scrollbar for modern look */
+  @apply w-2;
+}
+
+/* Scrollbar track (the background) */
+::-webkit-scrollbar-track {
+  /* Dark background to match theme */
+  @apply bg-gray-900;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  /* Rounded corners and subtle gray color */
+  @apply rounded-full bg-gray-700;
+}
+
+/* Scrollbar handle hover state */
+::-webkit-scrollbar-thumb:hover {
+  /* Lighter gray on hover for better feedback */
+  @apply bg-gray-600;
+}
