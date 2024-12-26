@@ -2,7 +2,7 @@ name: Build and Deploy
 
 on:
   push:
-    branches: ["main", "new-site"]
+    branches: ["main", "new-site-with-react"]
   workflow_dispatch:
 
 permissions:
@@ -43,7 +43,6 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
