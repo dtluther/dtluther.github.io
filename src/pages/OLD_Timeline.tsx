@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 interface TimelineEvent {
   year: number;
   icon: string;
