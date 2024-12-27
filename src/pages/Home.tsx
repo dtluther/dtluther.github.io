@@ -104,7 +104,7 @@ const timelineEvents: TimelineEvent[] = [
 
 // Main component
 const HomePage: FC = () => {
-  const isHeaderVisible = true;
+  const isHeaderVisible = false;
   const HEADER_WIDTH = 232; // px (includes content gap)
 
   const containerClasses = `mx-auto ${isHeaderVisible ? 'max-w-7xl' : 'max-w-4xl'} px-4`;
