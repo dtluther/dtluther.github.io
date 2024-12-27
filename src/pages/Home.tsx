@@ -11,12 +11,12 @@ interface TimelineEvent {
 const TimelineEvent: FC<TimelineEvent> = ({ year, icon, title, linkUrl }) => {
   const content = (
     <div className={`group -ml-3 flex items-center gap-4 rounded-lg p-3 ${linkUrl ? 'transition-colors hover:bg-[#222]' : ''}`}>
-      <time className="font-mono text-xl text-gray-400">{year}</time>
-      <div className={`flex h-14 w-14 items-center justify-center rounded-full bg-[#222] ${linkUrl ? 'group-hover:bg-[#282828]' : ''}`}>
-        <span className="inline-block translate-y-[1px] text-2xl leading-none">{icon}</span>
+      <time className="font-mono text-sm md:text-xl text-gray-400">{year}</time>
+      <div className={`flex h-9 w-9 md:h-14 md:w-14 items-center justify-center rounded-full bg-[#222] ${linkUrl ? 'group-hover:bg-[#282828]' : ''}`}>
+        <span className="inline-block translate-y-[1px] text-base md:text-2xl leading-none">{icon}</span>
       </div>
       <div className="flex-1">
-        <h3 className={`text-xl font-medium text-white ${linkUrl ? 'group-hover:text-[#c5b4e8]' : ''}`}>{title}</h3>
+        <h3 className={`text-sm md:text-xl font-medium text-white ${linkUrl ? 'group-hover:text-[#c5b4e8]' : ''}`}>{title}</h3>
       </div>
     </div>
   );
@@ -45,11 +45,11 @@ const CurrentProject: FC<CurrentProjectProps> = ({ startDate, title, icon }) => 
   return (
     <div className="flex items-center gap-2">
       <div className="text-right">
-        <p className="text-sm text-gray-400">Current project • Day {daysSince}</p>
-        <p className="text-xl text-white">{title}</p>
+        <p className="text-xs md:text-sm text-gray-400">Current project • Day {daysSince}</p>
+        <p className="text-sm md:text-xl text-white">{title}</p>
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#222]">
-        <span className="inline-flex items-center justify-center text-2xl leading-none">{icon}</span>
+      <div className="flex h-9 w-9 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#222]">
+        <span className="inline-flex items-center justify-center text-base md:text-2xl leading-none">{icon}</span>
       </div>
     </div>
   );
@@ -104,15 +104,12 @@ const timelineEvents: TimelineEvent[] = [
 
 // Main component
 const HomePage: FC = () => {
-  const isHeaderVisible = false;
-  const HEADER_WIDTH = 220; // px
-  const HEADER_CONTENT_GAP = 12; // px
+  const isHeaderVisible = true;
+  const HEADER_WIDTH = 232; // px (includes content gap)
 
-  const containerClasses = `mx-auto ${isHeaderVisible ? 'max-w-7xl' : 'max-w-4xl'} px-2`;
-  const mainClasses = isHeaderVisible ? 'pt-36' : 'pt-12';
-  const mainStyles = isHeaderVisible 
-    ? { maxWidth: `calc(100% - ${HEADER_WIDTH + HEADER_CONTENT_GAP}px)` } 
-    : undefined;
+  const containerClasses = `mx-auto ${isHeaderVisible ? 'max-w-7xl' : 'max-w-4xl'} px-4`;
+  const mainClasses = isHeaderVisible ? 'pt-2 md:pt-36' : 'pt-6 md:pt-24';
+  const mainWidthClass = isHeaderVisible ? `md:max-w-[calc(100%-${HEADER_WIDTH}px)]` : '';
 
   return (
     <div className={containerClasses}>
@@ -120,7 +117,7 @@ const HomePage: FC = () => {
         <Header />
       )}
 
-      <main className={mainClasses} style={mainStyles}>
+      <main className={`${mainClasses} ${mainWidthClass} pb-8`}>
         <Introduction />
         <Timeline events={timelineEvents} />
       </main>
@@ -131,9 +128,9 @@ const HomePage: FC = () => {
 };
 
 const Header: FC = () => (
-  <header className="fixed top-0 right-0 left-0 z-10">
+  <header className="relative md:fixed top-0 right-0 left-0 z-10">
     <div className="mx-auto max-w-7xl px-2">
-      <div className="flex justify-end py-12">
+      <div className="flex justify-end py-6 md:py-12">
         <CurrentProject 
           startDate={new Date('2024-01-01')}
           title="Training to dunk"
@@ -145,8 +142,8 @@ const Header: FC = () => (
 );
 
 const Introduction: FC = () => (
-  <div className="mb-16">
-    <p className="text-3xl text-gray-300 leading-relaxed">
+  <div className="mb-8">
+    <p className="text-sm md:text-3xl text-gray-300 leading-relaxed">
       <span className="text-white">Dillon Luther</span> is a mechanical engineer turned software engineer based in New York. 
       Outside of tech, he dances West Coast Swing, plays all sorts of sports, and pursues different challenges to make the most of his human experience.
     </p>
