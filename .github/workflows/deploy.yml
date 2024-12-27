@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,23 +25,26 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '23'
-          cache: 'yarn'
+          node-version: '20'
+      
+      - name: Enable Corepack
+        run: corepack enable
       
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       
       - name: Build
         run: yarn build
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
-      
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 
