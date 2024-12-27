@@ -1,9 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Testing deployment from site-update branch
 on:
   push:
-    branches: ["main", "site-update"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -43,6 +42,9 @@ jobs:
 
   deploy:
     needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages

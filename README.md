@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# dtluther.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal website built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses:
+- Node.js (see `.tool-versions` for version)
+- Yarn 4 (via Corepack)
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
 
-## Expanding the ESLint configuration
+### Setup
+1. Install Node.js (recommended to use ASDF)
+2. Enable Corepack: `corepack enable`
+3. Install dependencies: `yarn install`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Development Commands
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn preview` - Preview production build locally
 
-- Configure the top-level `parserOptions` property like this:
+## Deployment
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment process:
+1. Builds the React application
+2. Deploys to GitHub Pages
+3. Site is available at https://dtluther.github.io
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Note: Only the `main` branch can deploy to production.
